@@ -1,0 +1,8 @@
+<div class="card">
+  <img class="card-image" src="http://87.107.78.234:60005/img/logo.png" alt="Item Image">
+  <div class="card-details">
+    <p class="card-title">{{ item!.GoodName }}</p>
+    <p class="card-price">{{ item!.MaxSellPrice! | farsiNumber }}</p>
+  </div>
+  <button class="card-button" (click)="openOrderDialog(item!)">سفارش</button>
+</div>

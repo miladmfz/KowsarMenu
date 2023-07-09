@@ -1,0 +1,21 @@
+<div class="shopping-cart">
+    <div class="cart-items">
+      <div *ngFor="let item of items" class="cart-item">
+        <img class="item-image" src="http://87.107.78.234:60005/img/logo.png" alt="Item Image">
+        <div class="item-details">
+          <p class="item-title">{{ item.GoodName }}</p>
+          <p class="item-price">{{ item.MaxSellPrice! | farsiNumber }}</p>
+          <div class="item-quantity">
+            <button class="quantity-button" *ngIf=" item.FactorCode==null " (click)="decrementQuantity(item)">-</button>
+            <div class="quantity-value">{{ item.Amount! | farsiNumber }}</div>
+            <button class="quantity-button" *ngIf=" item.FactorCode==null " (click)="incrementQuantity(item)">+</button>
+          </div>
+          <p class="item-description">{{ item.Explain }}</p>
+        </div>
+        <button class="item-remove" *ngIf=" item.FactorCode==null " (click)="removeItemFromCart(item)">حذف آیتم</button>
+  
+
+      </div>
+    </div>
+  </div>
+  

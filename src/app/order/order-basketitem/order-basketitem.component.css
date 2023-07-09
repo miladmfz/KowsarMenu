@@ -1,0 +1,155 @@
+.shopping-cart {
+    width: 80%;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+  }
+  
+  .cart-items {
+    margin-bottom: 20px;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .item-image {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+  }
+  
+  .item-details {
+    flex-grow: 1;
+  }
+  
+  .item-title {
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .item-price {
+    margin: 5px 0;
+  }
+  
+  .item-quantity {
+    margin: 5px 0;
+  }
+  
+  .item-description {
+    margin: 5px 0;
+  }
+  
+  .item-remove {
+    padding: 5px 10px;
+    border: none;
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .summary-total {
+    font-weight: bold;
+  }
+  
+  .summary-checkout {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+
+  .quantity-button {
+    font-size: 16px;
+    padding: 4px 8px;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .quantity-value {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 8px;
+  }
+  
+
+  .item-quantity {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity-button {
+    font-size: 16px;
+    padding: 4px 8px;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .quantity-value {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 8px;
+    color: #000; /* Default color */
+  }
+  
+  .quantity-value.low {
+    color: green; /* Color for low values */
+  }
+  
+  .quantity-value.high {
+    color: red; /* Color for high values */
+  }
+  
+
+  .quantity-button {
+    font-size: 16px;
+    padding: 4px 8px;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .quantity-value {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 8px;
+    color: #000; /* Default color */
+  }
+  
+  .quantity-value.low {
+    color: green; /* Color for low values */
+  }
+  
+  .quantity-value.high {
+    color: red; /* Color for high values */
+  }
+  
+
+  .cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+  
+  .cart-item:last-child {
+    border-bottom: none; /* Remove bottom border for the last item */
+  }
+  

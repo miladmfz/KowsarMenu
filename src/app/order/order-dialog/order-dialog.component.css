@@ -1,0 +1,124 @@
+.dialog-container {
+  width: 300px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dialog-container h2 {
+  margin-top: 0;
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.actions {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.actions button {
+  margin-left: 10px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.quantity-input-horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; /* Center the content horizontally */
+  width: 200px; /* Set the desired width */
+}
+
+.quantity-button {
+  margin: 0 5px;
+  width: 40px; /* Set the width of the buttons */
+}
+
+input[type="text"] {
+  width: 60px; /* Set the width of the input field */
+  text-align: center; /* Center the text within the input field */
+}
+
+
+.quantity-button {
+  width: 40px;
+  height: 40px;
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.quantity-button:hover {
+  background-color: #e0e0e0;
+}
+
+.quantity-button:active {
+  background-color: #d0d0d0;
+}
+
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.actions button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  background-color: #e0e0e0;
+}
+
+.actions button:active {
+  background-color: #d0d0d0;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+
+.cancel-button {
+  
+  font-size: 16px;
+  font-weight: bold;
+}
+

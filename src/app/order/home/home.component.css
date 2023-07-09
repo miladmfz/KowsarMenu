@@ -1,0 +1,44 @@
+.hero-section {
+  background-color: #f2f2f2;
+  padding: 4% 0; /* استفاده از واحد٪ برای padding بالا و پایین */
+}
+
+.hero-content {
+  margin-bottom: 4%; /* استفاده از واحد٪ برای فاصله پایین */
+}
+
+.special-offers-section {
+  background-color: #ffffff;
+  padding: 4% 0; /* استفاده از واحد٪ برای padding بالا و پایین */
+}
+
+.offer-card {
+  margin-bottom: 4%; /* استفاده از واحد٪ برای فاصله پایین */
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 2%; /* استفاده از واحد٪ برای فاصله پایین */
+}
+
+h2 {
+  font-size: 2em;
+  color: #333333;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+h3 {
+  font-size: 2em;
+  color: #333333;
+  margin-bottom: 1%;
+  text-align: center; /* کاهش فاصله پایین */
+}
+
+p {
+  font-size: 2em;
+  color: #666666;
+  margin-bottom: 1%; 
+  text-align: center;/* کاهش فاصله پایین */
+}

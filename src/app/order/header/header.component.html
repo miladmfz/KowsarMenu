@@ -1,0 +1,18 @@
+<header>
+  <div class="header-container">
+    <h1>{{ TitleName }}</h1>
+    <nav>
+      <ul>
+        <li><a [routerLink]="'/home'">صفحه اصلی</a></li>
+        <li><a [routerLink]="'/menu'">منو</a></li>
+        <li><a [routerLink]="'/aboutus'">درباره ما</a></li>
+        <li class="shopping-cart">
+          <a [routerLink]="'/basket'">
+            <span class="cart-icon" *ngIf="basketamount">🛒</span>
+            <span class="cart-count" *ngIf="basketamount">{{ basketamount }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
