@@ -1,0 +1,81 @@
+<div class="header-container">
+  <app-header [TitleName]="mizname" [basketamount]="basketsum"></app-header>
+</div>
+
+<div class="search-container">
+  <input type="text" [(ngModel)]="searchTerm" placeholder="جستجو..." />
+</div>
+
+<div class="list group-list" #groupList>
+  <h1 class="title-list" *ngIf="isDesktopView()">گروه</h1>
+  <div class="group-list-container">
+    <ul class="group-list-items">
+      <li *ngFor="let group of Groups">
+
+        <app-order-group [item]="group" (Group_RefreshState)="RefreshMenu($event)"></app-order-group>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<ng-container *ngIf="loading">
+
+  <div class="loadingio-spinner-dual-ball-o9ft9rttttb">
+    <div class="ldio-vj1uu9kqp2k">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+</ng-container>
+
+
+
+<div class="lists-container" #listsContainer style="overflow-y: auto;">
+  <div class="list" #itemList (scroll)="onListScroll($event)">
+    <h1 class="title-list" *ngIf="isDesktopView()">آیتم</h1>
+    <ul class="item-list" #itemListRef>
+      <li class="item-sdsd" *ngFor="let item of filteredGoods; let i = index" #listItem>
+        <!-- <app-item-fa [item]="item" (Item_RefreshState)="RefreshMenu($event)"></app-item-fa> -->
+
+
+        <div (click)="openOrderDialog(item!)" class="card">
+
+
+          <ng-container *ngIf=" item.Imageitem.length> 100">
+            <img class="image-container" [src]="item.Imageitem">
+          </ng-container>
+          <ng-container class="m-6" *ngIf="item.Imageitem.length < 100">
+            <img class="imgh" src="./assets/images/logo.png" alt="No Photo"
+              style="opacity: 0.1;border-top: 2px solid black;">
+
+
+          </ng-container>
+
+
+          <div class="card-details">
+            <div class="card-title">{{ item.GoodName! }}</div>
+            <div class="card-explain">{{ item.GoodExplain2! }}</div>
+
+
+            <div class="card-price ">{{ item.MaxSellPrice!| farsiNumber }}</div>
+          </div>
+
+
+
+        </div>
+
+
+
+
+        <p class="card-grp">{{ item.GoodExplain1 }}</p>
+        <p class="card-Goodcode">{{ item.GoodCode }}</p>
+
+
+
+      </li>
+
+    </ul>
+  </div>
+</div>

@@ -1,16 +1,26 @@
 .card {
-    margin-top: 20px;
-    border: 2px solid #3de0fd;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    background-color: beige;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-weight: bolder;
-    font-size: medium;
-  }
-  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: scroll;
+}
 
+.card {
+  border: 1px solid #fcdf50;
+  padding: 5px 15px;
+  color: #a0a0a0;
+  -webkit-margin-end: 8px;
+  margin-inline-end: 8px;
+  border-radius: 24px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.card.selected {
+
+  border: none;
+  background-color: #1c1b16;
+  color: #fcdf50;
+  font-weight: 600;
+}

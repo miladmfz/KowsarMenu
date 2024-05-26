@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Good } from 'src/app/model/Good';
 import { OrderRepoService } from '../service/order-repo.service';
-import { CookieService } from '../service/cookie-service.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -9,18 +10,19 @@ import { CookieService } from '../service/cookie-service.service';
   templateUrl: './order-basketitem.component.html',
   styleUrls: ['./order-basketitem.component.css']
 })
-export class OrderBasketItemComponent  implements OnInit{
-  
+export class OrderBasketItemComponent implements OnInit {
+
   @Output() Basketitem_RefreshState = new EventEmitter<boolean>();
 
-  basketsum:Good[]=[]
-  @Input() items!:Good[]
+  basketsum: Good[] = []
+  @Input() items!: Good[]
+  Imageitem: string = '';
 
 
-  constructor  (    
+  constructor(
     private repo: OrderRepoService,
-    private cookieService: CookieService
-     ) { }
+    private router: Router
+  ) { }
 
 
   removeItemFromCart(item: any): void {
@@ -30,10 +32,10 @@ export class OrderBasketItemComponent  implements OnInit{
 
       this.repo.OrderRowDelete(
         item,
-        this.cookieService.getCookie('AppBasketInfoCode')
-        
-        ).subscribe(e => {
-          this.setRefresh();
+        '' + sessionStorage.getItem('AppBasketInfoCode')
+
+      ).subscribe(e => {
+        this.setRefresh();
       }
       );
 
@@ -45,55 +47,55 @@ export class OrderBasketItemComponent  implements OnInit{
   }
 
   incrementQuantity(item: any): void {
-   
-    if (item.Amount < 10 ) {
+
+    if (item.Amount < 10) {
       item.Amount++;
-    this.repo.OrderRowInsert(
-      item,
-      item.Amount,
-      item.Explain,
-      this.cookieService.getCookie('AppBasketInfoCode')
-      
+      this.repo.OrderRowInsert(
+        item,
+        item.Amount,
+        item.Explain,
+        '' + sessionStorage.getItem('AppBasketInfoCode')
+
       ).subscribe(e => {
         this.setRefresh();
-    }
-    );
+      }
+      );
 
-  }
+    }
 
   }
 
   decrementQuantity(item: any): void {
-    if (item.Amount > 1 ) {
+    if (item.Amount > 1) {
       item.Amount--;
       this.repo.OrderRowInsert(
         item,
         item.Amount,
         item.Explain,
-        this.cookieService.getCookie('AppBasketInfoCode')
-        
-        ).subscribe(e => {
-          this.setRefresh();
+        '' + sessionStorage.getItem('AppBasketInfoCode')
+
+      ).subscribe(e => {
+        this.setRefresh();
       }
       );
-    
-    
+
+
     }
 
   }
 
- 
 
-    
+
+
 
   OrderGetSummmary() {
 
-    this.repo.GetOrderSum(this.cookieService.getCookie('AppBasketInfoCode')).subscribe(e => {
+    this.repo.GetOrderSum('' + sessionStorage.getItem('AppBasketInfoCode')).subscribe(e => {
 
-      this.basketsum=e.Goods
+      this.basketsum = e.Goods
     }
     );
-  
+
   }
 
 
@@ -105,21 +107,23 @@ export class OrderBasketItemComponent  implements OnInit{
   // Example usage
   ngOnInit(): void {
 
-    this.OrderGetSummmary() 
+    this.OrderGetSummmary()
     this.GetBasketGoods()
-    
 
-    
+
+
   }
-  
+
   GetBasketGoods() {
 
-    this.repo.GetBasketOrder(this.cookieService.getCookie('AppBasketInfoCode')).subscribe(e => {
+    this.repo.GetBasketOrder('' + sessionStorage.getItem('AppBasketInfoCode')).subscribe(e => {
+
+
       this.items = e.Goods ? e.Goods : [];
-      
-      
+
+
     });
-    
+
   }
 
 

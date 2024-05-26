@@ -1,0 +1,22 @@
+<div class="card">
+  <ng-container *ngIf="Imageitem.length>100">
+    <img class="m-3" [src]="Imageitem" style=" border-radius: 5%; cursor: pointer;">
+  </ng-container>
+  <ng-container class="m-6" *ngIf="Imageitem.length<100">
+    <img src="./assets/images/logo.png" alt="No Photo"
+      style=" height: 300; width: 300; border-radius: 5%; cursor: pointer;">
+
+  </ng-container>
+  <div class="card-details">
+    <p class="card-title">{{ item!.GoodExplain5 }}</p>
+    <p class="card-explain">{{ item!.GoodExplain6 }}</p>
+    <p class="card-grp">{{ item!.GoodExplain1 }}</p>
+
+    <p class="card-price">{{ item!.MaxSellPrice! }}</p>
+  </div>
+  <ng-container *ngIf="miztype.length>0">
+
+    <button class="card-button" (click)="openOrderDialog(item!)">Order</button>
+
+  </ng-container>
+</div>

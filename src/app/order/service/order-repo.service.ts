@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Good, GoodsResponse } from '../../model/Good';
 import { Group, GroupsResponse } from '../../model/group';
@@ -12,63 +12,113 @@ import { BasketInfo } from 'src/app/model/BasketInfo';
 })
 export class OrderRepoService {
 
-  constructor(private client:HttpClient) { }
+  constructor(private client: HttpClient) { }
 
-  baseUrl = '87.107.78.234:60005/logincoffee';
+  // baseUrl = 'http://localhost:60009/logincoffee/index.php?tag=';
+
+  baseUrl = 'http://94.139.164.68:60005/login/index.php?tag=';
 
 
+  getAllGood(GroupCode: string, AppBasketInfoRef: string): Observable<GoodsResponse> {
 
-  getAllGood(GroupCode: string,AppBasketInfoRef: string):Observable<GoodsResponse>{
-    return this.client.get<GoodsResponse>('http://'+this.baseUrl+'/index.php?tag=GetOrderGoodList&GroupCode='+GroupCode+'&AppBasketInfoRef=' + AppBasketInfoRef);
+    const params = new HttpParams()
+      .append('GroupCode', GroupCode)
+      .append('AppBasketInfoRef', AppBasketInfoRef)
+
+    return this.client.get<GoodsResponse>(this.baseUrl + 'GetOrderGoodList', { params: params })
   }
 
 
-  getAllGroup():Observable<GroupsResponse>{
-    return this.client.get<GroupsResponse>('http://'+this.baseUrl+'/index.php?tag=GetOrdergroupList&GroupCode=71');
+  getAllGroup(): Observable<GroupsResponse> {
+    const params = new HttpParams().append('GroupCode', '71')
+
+    return this.client.get<GroupsResponse>(this.baseUrl + 'GetMenuOnlinegroups', { params: params })
   }
 
-  
-  GetGroupCode():Observable<TextValue>{
-    return this.client.get<TextValue>('http://'+this.baseUrl+'/index.php?tag=kowsar_info&Where=AppOrder_DefaultGroupCode');
-  
+
+  GetGroupCode(): Observable<TextValue> {
+    const params = new HttpParams().append('Where', 'AppOrder_DefaultGroupCode')
+
+    return this.client.get<TextValue>(this.baseUrl + 'kowsar_info', { params: params })
+
   }
 
   getGroupsByCode(groupCode: string): Observable<GroupsResponse> {
-    return this.client.get<GroupsResponse>('http://'+this.baseUrl+'/index.php?tag=GetOrdergroupList&GroupCode=' + groupCode);
+    const params = new HttpParams().append('GroupCode', groupCode)
+
+    return this.client.get<GroupsResponse>(this.baseUrl + 'GetMenuOnlinegroups', { params: params })
   }
 
 
   GetRstMizData(id: string): Observable<BasketInfo[]> {
-    return this.client.get<BasketInfo[]>('http://'+this.baseUrl+'/index.php?tag=WebOrderMizData&RstMizCode=' + id);
+    const params = new HttpParams().append('RstMizCode', id)
+
+    return this.client.get<BasketInfo[]>(this.baseUrl + 'WebOrderMizData', { params: params })
   }
 
-  OrderInfoInsert(rstmizCode: string,today:string): Observable<BasketInfo[]> {
-    return this.client.get<BasketInfo[]>('http://'+this.baseUrl+'/index.php?tag=WebOrderInfoInsert&Miz=' + rstmizCode+'&Date='+today);
+  OrderInfoInsert(rstmizCode: string, today: string): Observable<BasketInfo[]> {
+    const params = new HttpParams().append('Miz', rstmizCode).append('Date', today)
+    return this.client.get<BasketInfo[]>(this.baseUrl + 'WebOrderInfoInsert', { params: params })
   }
 
 
   GetBasketOrder(AppBasketInfoRef: string): Observable<GoodsResponse> {
-    return this.client.get<GoodsResponse>('http://'+this.baseUrl+'/index.php?tag=OrderGet&AppType=3&AppBasketInfoRef=' + AppBasketInfoRef);
-  }
+    const params = new HttpParams().append('AppType', '3').append('AppBasketInfoRef', AppBasketInfoRef)
 
-  
-  OrderRowInsert(good:Good,amount:string,desc:string,AppBasketInfoRef: string): Observable<GoodsResponse> {
-
-    return this.client.get<GoodsResponse>('http://'+this.baseUrl+'/index.php?tag=OrderRowInsert&GoodRef='+good.GoodCode+ '&FacAmount='+amount+ '&Price='+good.MaxSellPrice+ '&bUnitRef='+good.GoodUnitRef+ '&bRatio='+good.DefaultUnitValue+ '&Explain='+desc+ '&InfoRef='+AppBasketInfoRef+ '&RowCode='+good.RowCode);
-  }
-
-  OrderRowDelete(good:Good,AppBasketInfoRef: string): Observable<GoodsResponse> {
-
-    return this.client.get<GoodsResponse>('http://'+this.baseUrl+'/index.php?tag=DeleteGoodFromBasket&AppBasketInfoRef=' + AppBasketInfoRef+'&RowCode=' + good.RowCode);
+    return this.client.get<GoodsResponse>(this.baseUrl + 'OrderGet', { params: params })
   }
 
 
+  OrderRowInsert(good: Good, amount: string, desc: string, AppBasketInfoRef: string): Observable<GoodsResponse> {
+    const params = new HttpParams()
+      .append('GoodRef', good.GoodCode + '')
+      .append('FacAmount', amount)
+      .append('Price', good.MaxSellPrice + '')
+      .append('bUnitRef', good.GoodUnitRef + '')
+      .append('bRatio', good.DefaultUnitValue + '')
+      .append('Explain', desc)
+      .append('InfoRef', AppBasketInfoRef)
+      .append('RowCode', good.RowCode + '')
 
-  GetOrderSum(AppBasketInfoRef: string):Observable<GoodsResponse>{
-    return this.client.get<GoodsResponse>('http://'+this.baseUrl+'/index.php?tag=GetOrderSum&AppBasketInfoRef=' + AppBasketInfoRef);
+    return this.client.get<GoodsResponse>(this.baseUrl + 'OrderRowInsert', { params: params })
   }
 
-  
-  
+  OrderRowDelete(good: Good, AppBasketInfoRef: string): Observable<GoodsResponse> {
+    const params = new HttpParams().append('AppBasketInfoRef', AppBasketInfoRef).append('RowCode', good.RowCode + '')
+
+    return this.client.get<GoodsResponse>(this.baseUrl + 'DeleteGoodFromBasket', { params: params })
+  }
+
+
+
+  GetOrderSum(AppBasketInfoRef: string): Observable<GoodsResponse> {
+    const params = new HttpParams().append('AppBasketInfoRef', AppBasketInfoRef)
+
+    return this.client.get<GoodsResponse>(this.baseUrl + 'GetOrderSum', { params: params })
+  }
+
+
+
+
+  GetImage(GoodCode: string): Observable<TextValue> {
+
+    const params = new HttpParams()
+
+      .append('ClassName', 'TGood')
+      .append('IX', '0')
+      .append('Scale', '500')
+      .append('ObjectRef', GoodCode)
+
+    return this.client.get<any>(this.baseUrl + 'getImage', { params: params })
+
+  }
+
+
+
+
+
+
+
+
 
 }

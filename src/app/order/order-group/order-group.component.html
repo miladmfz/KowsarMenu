@@ -1,7 +1,6 @@
-<div class="card"(click)="saveNameToCookie(item.GroupCode!)">
-  <div class="card-details">
-    <p class="card-title" >{{item.Name}}</p>
+<div class="theme-categories centered-pills" id="_cats">
+  <div class="card" (click)="saveNameToCookie(item)" [class.selected]="isSelected(item)">
+    {{ item.Name }}
   </div>
+
 </div>
-
-

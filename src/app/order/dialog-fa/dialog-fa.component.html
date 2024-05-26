@@ -1,0 +1,35 @@
+<div class="dialog-container">
+  <div class="card">
+
+    <h1>{{item.GoodName}}</h1>
+
+    <div class="form-field">
+      <label for="quantity">تعداد:</label>
+      <div class="quantity-input-horizontal">
+        <button class="quantity-button" (click)="incrementQuantity()">+</button>
+        <input class="quantity-Text " id="quantity" [(ngModel)]="quantity" name="quantity" disabled>
+        <button class="quantity-button" (click)="decrementQuantity()">-</button>
+      </div>
+    </div>
+
+    <div class="error-message">{{ errorMessage }}</div>
+
+
+    <div class="form-field">
+      <label for="explanation"> توضیحات:</label>
+      <textarea id="explanation" [(ngModel)]="explanation" name="explanation"></textarea>
+    </div>
+
+    <div class="actions">
+      <ng-container *ngIf="isloading">
+        <span class="loader"></span>
+      </ng-container>
+      <ng-container *ngIf="!isloading">
+        <button mat-button (click)="onCancel()">لغو</button>
+
+        <button mat-button color="primary" (click)="onSave()">اضافه کردن</button>
+      </ng-container>
+
+    </div>
+  </div>
+</div>

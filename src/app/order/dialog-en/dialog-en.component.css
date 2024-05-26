@@ -1,0 +1,118 @@
+.dialog-container {
+  width: 300px;
+  padding: 100px;
+  background-color: #cf832b;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+}
+
+.quantity-button {
+  width: 40px;
+  height: 40px;
+  background-color: #e2cebd;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+
+}
+
+
+.dialog-container h1 {
+  margin-top: 0;
+  color: white;
+  text-align: center
+}
+
+.form-field {
+  margin-bottom: 15px;
+  justify-content: center;
+
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+}
+
+
+
+.form-field {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-input-horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Center the content horizontally */
+  /* Set the desired width */
+}
+
+.quantity-button {
+  margin: 0 5px;
+  width: 40px;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  /* Set the width of the buttons */
+}
+
+input[type="text"] {
+  width: 60px;
+  /* Set the width of the input field */
+  text-align: center;
+  /* Center the text within the input field */
+}
+
+
+
+
+
+
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+}
+
+.actions button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #e2cebd;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+
+}

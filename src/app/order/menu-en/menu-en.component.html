@@ -1,0 +1,41 @@
+<div class="header-container">
+  <app-header [TitleName]="mizname" [basketamount]="basketsum"></app-header>
+</div>
+
+<div class="search-container">
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Search ..." />
+</div>
+
+<div class="list group-list" #groupList style="direction: rtl; overflow-y: auto;">
+  <h1 class="title-list" *ngIf="isDesktopView()">گروه</h1>
+  <div class="group-list-container">
+    <ul class="group-list-items">
+      <li *ngFor="let group of Groups">
+
+        <app-order-group [item]="group" (Group_RefreshState)="RefreshMenu($event)"></app-order-group>
+      </li>
+    </ul>
+  </div>
+</div>
+<ng-container *ngIf="loading">
+
+  <div class="loadingio-spinner-dual-ball-o9ft9rttttb">
+    <div class="ldio-vj1uu9kqp2k">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+</ng-container>
+
+<div class="lists-container" #listsContainer style="overflow-y: auto;">
+  <div class="list" #itemList (scroll)="onListScroll($event)">
+    <h1 class="title-list" *ngIf="isDesktopView()">آیتم</h1>
+    <ul class="item-list" #itemListRef>
+      <li *ngFor="let item of filteredGoods" #listItem>
+        <app-item-en [item]="item" (Item_RefreshState)="RefreshMenu($event)"></app-item-en>
+      </li>
+    </ul>
+  </div>
+</div>

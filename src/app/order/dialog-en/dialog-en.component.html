@@ -1,0 +1,28 @@
+<div class="dialog-container">
+  <div class="card">
+
+    <h1>{{item.GoodExplain5}}</h1>
+
+    <div class="form-field">
+      <label for="quantity">Amount:</label>
+      <div class="quantity-input-horizontal">
+        <button class="quantity-button" (click)="decrementQuantity()">-</button>
+        <input type="text" id="quantity" [(ngModel)]="quantity" name="quantity" disabled>
+        <button class="quantity-button" (click)="incrementQuantity()">+</button>
+      </div>
+    </div>
+
+    <div class="error-message">{{ errorMessage }}</div>
+
+
+    <div class="form-field">
+      <label for="explanation">Description:</label>
+      <textarea id="explanation" [(ngModel)]="explanation" name="explanation"></textarea>
+    </div>
+
+    <div class="actions">
+      <button mat-button (click)="onCancel()">Cancel</button>
+      <button mat-button color="primary" (click)="onSave()">Add To Order</button>
+    </div>
+  </div>
+</div>

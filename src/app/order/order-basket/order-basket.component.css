@@ -1,28 +1,56 @@
-.cart-summary {
-  display: flex;
-  justify-content: space-between;
-  background-color: #f2f2f2;
+.header-container {
   padding: 10px;
-  margin-top: 20px;
-  border-radius: 5px;
+  background-color: #e2cd63;
+  border-bottom: 1px solid #ccc;
 }
 
-.summary-column {
-  flex: 1;
-  margin-right: 10px;
+.cart-summary {
+  margin: 20px;
+  padding: 15px;
+  background-color: #FAEED1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .summary-item {
+  direction: rtl;
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
 }
 
+.green-text {
+  color: green;
+}
+
+.red-text {
+  color: red;
+}
+
+
+
+
 .summary-label {
+  margin-left: 20px;
   font-weight: bold;
-  margin-right: 10px;
 }
 
 .summary-value {
-  color: #555;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.lists-container {
+  margin: 20px 0;
+}
+
+.list {
+  margin-bottom: 20px;
+}
+
+/* Styling for order basket item component */
+.app-order-basketitem {
+  /* Add your custom styling here */
 }

@@ -1,21 +1,117 @@
+<div>
 
-  <app-header></app-header>
 
-  <div class="offer-card">
-    <img class="card-image" src="http://87.107.78.234:60005/loginCoffee/SlideImage/Image1.jpeg" alt="پیشنهاد ویژه ۱">
+
+  <section class="hero section">
+    <h1>{{ mizname! }} </h1>
+    <h2 class="clickable" (click)="openDialog_fa()"> ↪مشاهده منو ↩</h2>
+    <!-- <p class="clickable" (click)="openDialog_en()">↩ Menu ↪</p> -->
+    <ng-template #dialogTemplateFa style="background-color: #33312a">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">توجه</h2>
+          </div>
+          <div class="modal-body">
+            <p class="dialog-template">مهمان عزیز، شما می‌توانید در این بخش سفارش خود را انتخاب کنید و سپس ویتر را صدا
+              کنید که سفارش شما را ثبت کند.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" (click)="closeDialog()">مشاهده منو</button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <!-- <ng-template #dialogTemplateEn>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">Attention</h2>
+          </div>
+          <div class="modal-body">
+            <p class="dialog-template">Dear guest, you can choose your order in this section and then call the waiter to
+              register your order.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" (click)="closeDialog()">view menu</button>
+          </div>
+        </div>
+      </div>
+    </ng-template> -->
+
+  </section>
+
+  <div class="padding-view" style="background-color: #33312a">
+    <!-- Content goes here -->
   </div>
 
 
-    <div class="hero-content">
-      <h2>کشف غذاهای خوشمزه ما</h2>
-      <p>تجربه ای از بهترین لذت های آشپزی، با عشق ساخته شده و با کمال سرو می شود.</p>
+
+  <div class="slider">
+    <div *ngFor="let image of images; let i = index" class="slide" [class.active]="i === currentSlide">
+      <img [src]="image.src" [alt]="image.alt">
     </div>
+  </div>
 
-  
 
-    <div class="offer-card">
-      <img class="card-image" src="http://87.107.78.234:60005/loginCoffee/SlideImage/Image2.jpeg" alt="پیشنهاد ویژه ۲">
 
+  <section class="menu section">
+    <h2 style=" color: #fcdf50; ">معرفی مجموعه</h2>
+    <div class="menu-items">
+      <p class="description">
+        ساختمانی که امروز «کافه کتاب ققنوس» نام گرفته است در سال ۱۳۳۱ بنا شده و ویژگی‌های معماری دهه بیست در آن بارز
+        است.
+        سازندة بنا دکتر فرین بوده و خود سال‌ها در آن سکونت داشته. این ساختمان مالکان و ساکنان بسیاری به خود دیده تا
+        آن‌که
+        در سال ۱۳۷۷ انتشارات ققنوس ساختمان را خریداری کرد. از آن به بعد به‌عنوان انبار كتاب از آن استفاده مي‌شده تا سال
+        ۱۳۹۵ که نياز به داشتن فضایی برای عرضه آثار انتشارات ققنوس، برگزاری مراسم رونمايی و جشن امضا و همچنين جلسات نقد و
+        بررسی كتاب، ما را به فكر بازسازی این ساختمان قدیمی انداخت.
+      </p>
+      <p class="description">
+        هم اكنون در چند فضاي تفيك شده با كاربري‌هاي مختلف در خدمتتان هستيم.
+        كتاب‌هاي عمومي و بزرگسال در طبقة همكف، كتاب‌هاي كودك و نوجوان و دست‌سازه‌هاي هنرمندان ايراني در طبقه اول جهت
+        فروش
+        عرضه شده‌اند.
+      </p>
+      <p class="description">
+        همچنين سالني براي برگزاري مراسم‌هاي مختلف فرهنگي و كلاس‌هاي آموزشي با ظرفيت حدود ۵۰ نفر در نظر گرفته شده است.
+        كافه هم در دو قسمت حياط و روف در ساعات معيني به سرويس‌دهي مهمانان مشغول است.
+        با توجه به محدود بودن فضا، حفظ آرامش مهمانان و سرويس‌دهي بهتر از پذيرش بيش از 8 نفر در هر ميز و برگزاري مراسم
+        تولد
+        معذوريم.
+      </p>
+      <p class="description">
+        ورود كيك و شيريني هم به مجموعه امكان پذير نيست
+      </p>
     </div>
-  
-<app-footer></app-footer>
+  </section>
+
+
+  <div class="padding-view" style="background-color: #33312a">
+    <!-- Content goes here -->
+  </div>
+
+
+  <section class="about section" style="background-color: #33312a;direction: rtl;">
+    <h2 style=" color: #fcdf50; ">ارتباط با ما</h2>
+
+    <ng-container *ngFor="let info of contactInfo">
+      <p>{{ info.label! }} {{ info.value! }}</p>
+    </ng-container>
+
+
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6479.770602606938!2d51.39427492318878!3d35.70444005119247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e012edeb695d3%3A0xfff13879b3f25c4a!2sQoqnoos%20Book%20Cafe!5e0!3m2!1sen!2s!4v1689695416720!5m2!1sen!2s"
+      width="600" height="450" style="border:0; background-color: #33312a" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  </section>
+
+
+
+
+
+  <app-footer></app-footer>
+
+</div>

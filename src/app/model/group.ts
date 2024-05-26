@@ -7,6 +7,7 @@ export interface Group{
     L4?:string,
     L5?:string,
     ChildNo?:string,
+    Selected?:boolean,
 
 }
 

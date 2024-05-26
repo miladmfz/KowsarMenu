@@ -1,41 +1,31 @@
-    <div class="header-container">
+ 
 
+
+    <div class="header-container">
       <app-header [TitleName]="mizname"  [basketamount]="basketsum[0]!.SumFacAmount!"></app-header>
-    
     </div>
     
     <div class="cart-summary" *ngIf="basketsum[0]">
       <div class="summary-item">
         <div class="summary-label">مجموع تعداد:</div>
-        <div class="summary-value">{{ basketsum[0]!.SumFacAmount! |farsiNumber}}</div>
-      </div>
-      <div class="summary-item">
-        <div class="summary-label">مجموع قیمت:</div>
-        <div class="summary-value">{{ basketsum[0]!.SumPrice! |farsiNumber }}</div>
+        <div class="summary-value">{{ basketsum[0].SumFacAmount! | farsiNumber }}</div>
       </div>
       <div class="summary-item">
         <div class="summary-label">وضعیت:</div>
-        <div class="summary-value" *ngIf="basketsum[0]!.InfoState === '2'">
-            ثبت شده
-        </div>
-        <div class="summary-value" *ngIf="basketsum[0]!.InfoState !== '2'">
-          در حال سفارش
-        </div>
-        
+        <div class="summary-value"
+        [ngClass]="{'green-text': basketsum[0].InfoState === '2', 'red-text': basketsum[0].InfoState !== '2'}">
+     {{ basketsum[0].InfoState === '2' ? 'ثبت شده' : 'در حال سفارش' }}
+   </div>
+   
       </div>
     </div>
     
-    
-    <div class="lists-container" #listsContainer>
-
-        <div class="list"  #basketList>
-          <app-order-basketitem [items]="BasketGoods" (Basketitem_RefreshState)="RefreshMenu($event)"></app-order-basketitem>
-         
-        </div>
-      
-  
+    <div class="lists-container">
+      <div class="list" #basketList>
+        <app-order-basketitem [items]="BasketGoods" (Basketitem_RefreshState)="RefreshMenu($event)"></app-order-basketitem>
+      </div>
     </div>
-
+    
     
 
 
